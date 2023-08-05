@@ -22,7 +22,7 @@
 			<span class="sep"> | </span>
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'hasora-theme' ), 'hasora-theme', '<a href="http://underscores.me/">Josy Li, Makiko Ono, Yuko Kitahata</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'hasora-theme' ), 'hasora-theme', '<a href="http://underscores.me/">Makiko Ono, Yuko Kitahata, Josy Li</a>' );
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
