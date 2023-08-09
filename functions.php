@@ -49,7 +49,9 @@ function hasora_theme_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'hasora-theme' ),
+			'menu-1' => esc_html__( 'Header', 'hasora-theme' ),
+			'footer' => esc_html__( 'Footer', 'hasora-theme' ),
+			'sns' => esc_html__('SNS', 'hasora-theme')
 		)
 	);
 
