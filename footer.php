@@ -12,6 +12,15 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
+		<!-- Footer Menu -->
+		<nav id="footer-navigation" class="footer-navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'footer') ); ?>
+		</nav>
+		<!-- SNS Links -->
+		<nav id="social-menu" class="social-menu">
+			<?php wp_nav_menu( array( 'theme_location' => 'sns') ); ?>
+		</nav>
+		
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'hasora-theme' ) ); ?>">
 				<?php
