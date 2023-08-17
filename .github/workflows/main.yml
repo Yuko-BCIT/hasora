@@ -16,4 +16,4 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USER }} 
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }} 
           LOCAL_DIR: ./                           
-          REMOTE_DIR: "/public_html/hasora/wp-content/themes/hasora-theme"
+          REMOTE_DIR: ""
