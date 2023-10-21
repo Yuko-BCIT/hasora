@@ -21,8 +21,48 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			// Banner image and text template
+			get_template_part( 'template-parts/banner', 'image' );
+			?>
+			
+			<!-- Contact form section -->
+			<section class="contact-form">
+          	<?php echo do_shortcode( '[ninja_form id=3]' ); ?>
+    		</section>
 
+			<!-- SNS section -->
+			<section class="sns-links">
+			<!-- Instagram feed link -->
+          	<?php echo do_shortcode( '[instagram-feed feed=1]' );
+
+          	// ACF output
+			if ( function_exists('get_field') ) :
+				// SNS info title
+				if (get_field('sns_info_title')) : ?>
+					<h2><?php the_field('sns_info_title'); ?></h2><?php
+				endif;
+
+				// Links to SNS
+				if (get_field('sns_url1')) :
+					$url1 = get_field('sns_url1'); ?>
+					<a class="sns-url" href="<?php echo esc_url( $url1 ); ?>">Facebook</a><?php
+				endif;
+
+				if (get_field('sns_url2')) :
+					$url2 = get_field('sns_url2'); ?>
+					<a class="sns-url" href="<?php echo esc_url( $url2 ); ?>">Instagram</a><?php
+				endif;
+
+				if (get_field('sns_url3')) :
+					$url3 = get_field('sns_url3'); ?>
+					<a class="sns-url" href="<?php echo esc_url( $url3 ); ?>">YouTube</a><?php
+				endif;
+			endif;
+			// End of ACF output
+			?>
+    		</section>
+
+			<?php
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
@@ -34,5 +74,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
