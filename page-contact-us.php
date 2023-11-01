@@ -33,7 +33,7 @@ get_header();
 			<!-- SNS section -->
 			<section class="sns-links">
 			<!-- Instagram feed link -->
-          	<?php echo do_shortcode( '[instagram-feed feed=1]' );
+          	<?php echo do_shortcode( '[instagram-feed feed=2]' );
 
           	// ACF output
 			if ( function_exists('get_field') ) :
