@@ -21,37 +21,30 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			// Banner image and text template
+			get_template_part( 'template-parts/banner', 'image' );
 
+			// ACF output
 			if ( function_exists('get_field') ) :
-
-				if ( get_field('about_banner_image')) :
-					$image = get_field('about_banner_image');
-					$size = 'large'; // (thumbnail, medium, large, full or custom size)
-					if( $image ) {
-						?>
-							<img class="about-image"><?php
-							echo wp_get_attachment_image( $image, $size );
-							?>
-						<?php
-					}
-				endif;
-
 				if ( get_field('about_message')) :
 					?>
 					<p class="about-message"><?php echo the_field('about_message'); ?></p>
 					<?php
 				endif;
+				?>
 
+				<!-- Company information -->
+				<section class="company-info">
+				<?php
 				if ( get_field('company_info_title')) :
 					?>
 					<h2><?php echo the_field('company_info_title'); ?></h2>
 					<?php
 				endif;
-
+				
 				if ( get_field('company_name')) :
 					?>
-					<h1><?php echo the_field('company_name'); ?></h1>
+					<p><?php echo the_field('company_name'); ?></p>
 					<?php
 				endif;
 
@@ -73,25 +66,36 @@ get_header();
 					<?php
 				endif;
 
+				if ( get_field('business_details')) :
+					?>
+					<p><?php echo the_field('business_details'); ?></p>
+					<?php
+				endif;
+				?>
+				</section>
+
+				<!-- EC site information -->
+				<section class="ecsite-info">
+				<?php
 				if ( get_field('ecsite_image')) :
 					$image = get_field('ecsite_image');
 					$size = 'large'; // (thumbnail, medium, large, full or custom size)
-					if( $image ) {
-						?>
-							<img class="about-image"><?php
-							echo wp_get_attachment_image( $image, $size );
-							?>
-						<?php
-					}
+					if( $image ) :
+						echo wp_get_attachment_image( $image, $size );
+					endif;
 				endif;
-
 
 				if ( get_field('ecsite_message')) :
 					?>
 					<p><?php echo the_field('ecsite_message'); ?></p>
 					<?php
 				endif;
+				?>
+				</section>
+
+				<?php
 			endif;
+			// End of ACF output
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
@@ -104,5 +108,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
