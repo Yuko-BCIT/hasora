@@ -44,17 +44,23 @@ get_header();
 				// Links to SNS
 				if (get_field('sns_url1')) :
 					$url1 = get_field('sns_url1'); ?>
-					<a class="sns-url" href="<?php echo esc_url( $url1 ); ?>">Facebook</a><?php
+					<a class="sns-url" href="<?php echo esc_url( $url1 ); ?>">
+						<?php get_template_part('images/facebook'); ?> <!-- SVG icon file -->
+					</a><?php
 				endif;
 
 				if (get_field('sns_url2')) :
 					$url2 = get_field('sns_url2'); ?>
-					<a class="sns-url" href="<?php echo esc_url( $url2 ); ?>">Instagram</a><?php
+					<a class="sns-url" href="<?php echo esc_url( $url2 ); ?>">
+						<?php get_template_part('images/instagram'); ?>
+					</a><?php
 				endif;
 
 				if (get_field('sns_url3')) :
 					$url3 = get_field('sns_url3'); ?>
-					<a class="sns-url" href="<?php echo esc_url( $url3 ); ?>">YouTube</a><?php
+					<a class="sns-url" href="<?php echo esc_url( $url3 ); ?>">
+						<?php get_template_part('images/youtube'); ?>
+					</a><?php
 				endif;
 			endif; // End of ACF
 			
