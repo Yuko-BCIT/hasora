@@ -16,14 +16,26 @@
 		<nav id="footer-navigation" class="footer-navigation">
 			<?php wp_nav_menu( array( 'theme_location' => 'footer') ); ?>
 		</nav>
+
+		<div class="site-info">
+			<a href="<?php echo esc_url( __( '#' ) ); ?>">
+				<?php
+				printf( esc_html__( 'LOGO. Hasora' ) );
+				?>
+			</a>
+		</div><!-- .site-info -->
 		<!-- SNS Links -->
 		<nav id="social-menu" class="social-menu">
 			<?php wp_nav_menu( array( 'theme_location' => 'sns') ); ?>
 		</nav>
 		
-		<div class="site-info">
-
-		</div><!-- .site-info -->
+		<div>
+			<a href="<?php echo esc_url( __( '#' ) ); ?>">
+				<?php
+				printf( esc_html__( '&copy;2023 Hasora All Rights Reserved.' ) );
+				?>
+			</a>
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
