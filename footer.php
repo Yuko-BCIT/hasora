@@ -19,9 +19,10 @@
 
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( '#' ) ); ?>">
-				<?php
-				printf( esc_html__( 'LOGO. Hasora' ) );
-				?>
+			<?php
+			get_template_part('images/logo'); // Logo icon
+			printf( esc_html__( 'Hasora' ) );
+			?>
 			</a>
 		</div><!-- .site-info -->
 		<!-- SNS Links -->
