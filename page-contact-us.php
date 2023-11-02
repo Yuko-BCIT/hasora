@@ -27,14 +27,13 @@ get_header();
 			
 			<!-- Contact form section -->
 			<section class="contact-form">
-          	<?php echo do_shortcode( '[ninja_form id=3]' ); ?>
+			<!-- Ninja Forms plugin -->
+			<?php echo do_shortcode( '[ninja_form id=3]' ); ?>
     		</section>
 
 			<!-- SNS section -->
 			<section class="sns-links">
-			<!-- Instagram feed link -->
-          	<?php echo do_shortcode( '[instagram-feed feed=2]' );
-
+          	<?php 
           	// ACF output
 			if ( function_exists('get_field') ) :
 				// SNS info title
@@ -57,17 +56,14 @@ get_header();
 					$url3 = get_field('sns_url3'); ?>
 					<a class="sns-url" href="<?php echo esc_url( $url3 ); ?>">YouTube</a><?php
 				endif;
-			endif;
-			// End of ACF output
+			endif; // End of ACF
+			
+			// Instagram Feed plugin
+			echo do_shortcode( '[instagram-feed feed=2]' );
 			?>
     		</section>
 
-			<?php
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
+		<?php
 		endwhile; // End of the loop.
 		?>
 
