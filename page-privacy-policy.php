@@ -21,11 +21,14 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			// Banner image and text template
+			get_template_part( 'template-parts/banner', 'image' );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
+			// ACF output for privacy policy 
+			if ( function_exists('get_field') ) :
+				if (get_field('privacy_policy')) :
+					the_field('privacy_policy');
+				endif;
 			endif;
 
 		endwhile; // End of the loop.
@@ -34,5 +37,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
