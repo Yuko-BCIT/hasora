@@ -18,9 +18,6 @@ get_header();
 	<main id="primary" class="site-main">
 		
 		<?php
-		while ( have_posts() ) :
-			the_post();
-
 			// Banner image and text template
 			get_template_part( 'template-parts/banner', 'image' );
 
@@ -41,37 +38,57 @@ get_header();
 					<h2><?php echo the_field('company_info_title'); ?></h2>
 					<?php
 				endif;
-				
-				if ( get_field('company_name')) :
-					?>
-					<p><?php echo the_field('company_name'); ?></p>
-					<?php
-				endif;
-
-				if ( get_field('company_address')) :
-					?>
-					<p><?php echo the_field('company_address'); ?></p>
-					<?php
-				endif;
-
-				if ( get_field('company_ceo')) :
-					?>
-					<p><?php echo the_field('company_ceo'); ?></p>
-					<?php
-				endif;
-
-				if ( get_field('company_founded')) :
-					?>
-					<p><?php echo the_field('company_founded'); ?></p>
-					<?php
-				endif;
-
-				if ( get_field('business_details')) :
-					?>
-					<p><?php echo the_field('business_details'); ?></p>
-					<?php
-				endif;
 				?>
+					<table>
+						<tbody>
+						<?php
+						if ( get_field('company_name')) :
+							?>
+							<tr>
+								<td><?php printf( esc_html__( '会社名' ) ); ?></td>
+								<td><?php echo the_field('company_name'); ?></td>
+							</tr>
+							<?php
+						endif;
+
+						if ( get_field('company_address')) :
+							?>
+							<tr>
+								<td><?php printf( esc_html__( '所在地' ) ); ?></td>
+								<td><?php echo the_field('company_address'); ?></td>
+							</tr>
+							<?php
+						endif;
+
+						if ( get_field('company_ceo')) :
+							?>
+							<tr>
+								<td><?php printf( esc_html__( '代表者' ) ); ?></td>
+								<td><?php echo the_field('company_ceo'); ?></td>
+							</tr>
+							<?php
+						endif;
+
+						if ( get_field('company_founded')) :
+							?>
+							<tr>
+								<td><?php printf( esc_html__( '設立' ) ); ?></td>
+								<td><?php echo the_field('company_founded'); ?></td>
+							</tr>
+							<?php
+						endif;
+
+						if ( get_field('business_details')) :
+							?>
+							<tr>
+								<td><?php printf( esc_html__( '事業内容' ) ); ?></td>
+								<td><?php echo the_field('business_details'); ?></td>
+							</tr>
+							<?php
+						endif;
+						?>
+						</tbody>
+					</table>
 				</section>
 
 				<!-- EC site information -->
@@ -96,13 +113,6 @@ get_header();
 				<?php
 			endif;
 			// End of ACF output
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
 		?>
 
 	</main><!-- #main -->
