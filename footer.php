@@ -18,7 +18,7 @@
 		</nav>
 
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( '#' ) ); ?>">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 			<?php
 			get_template_part('images/logo'); // Logo icon
 			esc_html_e( 'Hasora' );
@@ -31,7 +31,7 @@
 		</nav>
 		
 		<div>
-			<a href="<?php echo esc_url( __( '#' ) ); ?>">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 				<?php esc_html_e( '&copy;' );
 				echo date("Y"); ?> <!-- get current year -->
 				<?php esc_html_e( 'Hasora&nbsp; All Rights Reserved.' ); ?>
