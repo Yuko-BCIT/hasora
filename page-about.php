@@ -45,7 +45,7 @@ get_header();
 						if ( get_field('company_name')) :
 							?>
 							<tr>
-								<td><?php printf( esc_html__( '会社名' ) ); ?></td>
+								<td><?php esc_html_e( '会社名' ); ?></td>
 								<td><?php echo the_field('company_name'); ?></td>
 							</tr>
 							<?php
@@ -54,7 +54,7 @@ get_header();
 						if ( get_field('company_address')) :
 							?>
 							<tr>
-								<td><?php printf( esc_html__( '所在地' ) ); ?></td>
+								<td><?php esc_html_e( '所在地' ); ?></td>
 								<td><?php echo the_field('company_address'); ?></td>
 							</tr>
 							<?php
@@ -63,7 +63,7 @@ get_header();
 						if ( get_field('company_ceo')) :
 							?>
 							<tr>
-								<td><?php printf( esc_html__( '代表者' ) ); ?></td>
+								<td><?php esc_html_e( '代表者' ); ?></td>
 								<td><?php echo the_field('company_ceo'); ?></td>
 							</tr>
 							<?php
@@ -72,7 +72,7 @@ get_header();
 						if ( get_field('company_founded')) :
 							?>
 							<tr>
-								<td><?php printf( esc_html__( '設立' ) ); ?></td>
+								<td><?php esc_html_e( '設立' ); ?></td>
 								<td><?php echo the_field('company_founded'); ?></td>
 							</tr>
 							<?php
@@ -81,7 +81,7 @@ get_header();
 						if ( get_field('business_details')) :
 							?>
 							<tr>
-								<td><?php printf( esc_html__( '事業内容' ) ); ?></td>
+								<td><?php esc_html_e( '事業内容' ); ?></td>
 								<td><?php echo the_field('business_details'); ?></td>
 							</tr>
 							<?php
