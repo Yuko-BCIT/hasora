@@ -21,7 +21,7 @@
 			<a href="<?php echo esc_url( __( '#' ) ); ?>">
 			<?php
 			get_template_part('images/logo'); // Logo icon
-			printf( esc_html__( 'Hasora' ) );
+			esc_html_e( 'Hasora' );
 			?>
 			</a>
 		</div><!-- .site-info -->
@@ -32,9 +32,9 @@
 		
 		<div>
 			<a href="<?php echo esc_url( __( '#' ) ); ?>">
-				<?php
-				printf( esc_html__( '&copy;2023 Hasora All Rights Reserved.' ) );
-				?>
+				<?php esc_html_e( '&copy;' );
+				echo date("Y"); ?> <!-- get current year -->
+				<?php esc_html_e( 'Hasora&nbsp; All Rights Reserved.' ); ?>
 			</a>
 		</div>
 	</footer><!-- #colophon -->
