@@ -18,9 +18,6 @@ get_header();
 	<main id="primary" class="site-main">
 
 		<?php
-		while ( have_posts() ) :
-			the_post();
-
 			// Banner image and text template
 			get_template_part( 'template-parts/banner', 'image' );
 			?>
@@ -70,7 +67,6 @@ get_header();
     		</section>
 
 		<?php
-		endwhile; // End of the loop.
 		?>
 
 	</main><!-- #main -->
