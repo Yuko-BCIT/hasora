@@ -20,9 +20,9 @@ get_header();
 		<?php
 			// Banner image and text template
 			get_template_part( 'template-parts/banner', 'image' );
-
 			// ACF output for privacy policy 
 			if ( function_exists('get_field') ) :
+				echo 'test';
 				if (get_field('privacy_policy')) :
 					the_field('privacy_policy');
 				endif;
