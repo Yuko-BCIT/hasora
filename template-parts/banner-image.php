@@ -15,6 +15,12 @@
         <!-- Banner text output -->
 		<section class="banner-text"> 
             <!-- h1 output for page title -->
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+			<?php
+            if (is_front_page()):
+                the_title( '<h1 class="entry-title screen-reader-text">', '</h1>' );
+            else:
+                the_title( '<h1 class="entry-title>"', '</h1>' );
+            endif;            
+            ?>
 		</section>
     </header><!-- .entry-header -->

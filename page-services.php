@@ -35,7 +35,7 @@ get_header();
 			<?php
 			if (get_field('services_message')):
 				?>
-				<p><?php echo the_field('services_message')?></p>
+				<p><?php the_field('services_message')?></p>
 				<?php
 			endif;
 			?>
@@ -43,8 +43,8 @@ get_header();
 			if (get_field('service1_title') && get_field('service1_paragraph')):
 			?>
 			<section>
-				<h2><?php echo the_field('service1_title')?></h2>
-				<p><?php echo the_field('service1_paragraph') ?></p>
+				<h2><?php the_field('service1_title')?></h2>
+				<p><?php the_field('service1_paragraph') ?></p>
 			</section>
 			<?php
 			endif;
@@ -54,8 +54,8 @@ get_header();
 			if (get_field('service2_title') && get_field('service2_paragraph')):
 			?>
 			<section>
-				<h2><?php echo the_field('service2_title')?></h2>
-				<p><?php echo the_field('service2_paragraph') ?></p>
+				<h2><?php the_field('service2_title')?></h2>
+				<p><?php the_field('service2_paragraph') ?></p>
 			</section>
 			<?php
 			endif;
