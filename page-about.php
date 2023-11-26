@@ -25,7 +25,7 @@ get_header();
 			if ( function_exists('get_field') ) :
 				if ( get_field('about_message')) :
 					?>
-					<p class="about-message"><?php echo the_field('about_message'); ?></p>
+					<p class="about-message"><?php the_field('about_message'); ?></p>
 					<?php
 				endif;
 				?>
@@ -35,7 +35,7 @@ get_header();
 				<?php
 				if ( get_field('company_info_title')) :
 					?>
-					<h2><?php echo the_field('company_info_title'); ?></h2>
+					<h2><?php the_field('company_info_title'); ?></h2>
 					<?php
 				endif;
 				?>
@@ -46,7 +46,7 @@ get_header();
 							?>
 							<tr>
 								<td><?php esc_html_e( '会社名' ); ?></td>
-								<td><?php echo the_field('company_name'); ?></td>
+								<td><?php the_field('company_name'); ?></td>
 							</tr>
 							<?php
 						endif;
@@ -55,7 +55,7 @@ get_header();
 							?>
 							<tr>
 								<td><?php esc_html_e( '所在地' ); ?></td>
-								<td><?php echo the_field('company_address'); ?></td>
+								<td><?php the_field('company_address'); ?></td>
 							</tr>
 							<?php
 						endif;
@@ -64,7 +64,7 @@ get_header();
 							?>
 							<tr>
 								<td><?php esc_html_e( '代表者' ); ?></td>
-								<td><?php echo the_field('company_ceo'); ?></td>
+								<td><?php the_field('company_ceo'); ?></td>
 							</tr>
 							<?php
 						endif;
@@ -73,7 +73,7 @@ get_header();
 							?>
 							<tr>
 								<td><?php esc_html_e( '設立' ); ?></td>
-								<td><?php echo the_field('company_founded'); ?></td>
+								<td><?php the_field('company_founded'); ?></td>
 							</tr>
 							<?php
 						endif;
@@ -82,7 +82,7 @@ get_header();
 							?>
 							<tr>
 								<td><?php esc_html_e( '事業内容' ); ?></td>
-								<td><?php echo the_field('business_details'); ?></td>
+								<td><?php the_field('business_details'); ?></td>
 							</tr>
 							<?php
 						endif;
@@ -104,7 +104,7 @@ get_header();
 
 				if ( get_field('ecsite_message')) :
 					?>
-					<p><?php echo the_field('ecsite_message'); ?></p>
+					<p><?php the_field('ecsite_message'); ?></p>
 					<?php
 				endif;
 				?>
