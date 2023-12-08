@@ -151,6 +151,27 @@ function hasora_theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'hasora_theme_scripts' );
 
+// Add ACF Options Pages to Dashboard
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'page_title'    => 'Call-to-Action Settings',
+        'menu_title'    => 'Call-to-Action Settings',
+        'menu_slug'     => 'call-to-action-settings',
+        'capability'    => 'edit_posts',
+		'parent_slug'	=> ''
+    ));
+    acf_add_options_sub_page(array(
+        'page_title'    => 'CTA: Shopify Settings',
+        'menu_title'    => 'CTA-Shopify',
+        'parent_slug'   => 'call-to-action-settings',
+    ));
+    acf_add_options_sub_page(array(
+        'page_title'    => 'CTA: SNS Settings',
+        'menu_title'    => 'CTA-SNS',
+        'parent_slug'   => 'call-to-action-settings',
+    ));
+}
+
 /**
  * Implement the Custom Header feature.
  */
