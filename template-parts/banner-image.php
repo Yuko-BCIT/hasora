@@ -32,7 +32,7 @@
             if (is_front_page()):
                 the_title( '<h1 class="entry-title screen-reader-text">', '</h1>' );
             else:
-                the_title( '<h1 class="entry-title>"', '</h1>' );
+                the_title( '<h1 class="entry-title">', '</h1>' );
             endif;            
             ?>
 		</section>
