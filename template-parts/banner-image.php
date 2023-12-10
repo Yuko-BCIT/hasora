@@ -10,7 +10,20 @@
 
     <header class="entry-header">
         <!-- Banner image output -->
-        <?php hasora_theme_post_thumbnail(); ?>
+        <?php 
+        $page_id = get_the_ID();
+        if ($page_id == 11):
+        ?>
+        
+            <?php hasora_theme_post_thumbnail('thumbnail', array( 'class' => 'parallex' )); ?>
+        <?php
+        else:
+        ?>
+            <?php hasora_theme_post_thumbnail(); ?>
+        <?php
+        endif;
+        ?>
+
         
         <!-- Banner text output -->
 		<section class="banner-text"> 
