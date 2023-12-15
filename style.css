@@ -2,7 +2,7 @@
 /*!
 Theme Name: Hasora Theme
 Theme URI: http://underscores.me/
-Author:  Makiko Ono, Yuko Kitahata, Josy Li
+Author:  Makiko Ono, Yuko Kitahata
 Author URI: http://underscores.me/
 Description: A custome theme for Hasora Organic India Private Limited
 Version: 1.0.0
@@ -14,8 +14,6 @@ Text Domain: hasora-theme
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned.
-
 Hasora Theme is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
@@ -392,6 +390,7 @@ textarea {
 	color: #404040;
 	font-family: "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", sans-serif;
 	font-size: 1rem;
+	font-weight: 500;
 	line-height: 1.5;
 }
 
@@ -697,6 +696,39 @@ textarea {
 	flex: 1 0 50%;
 }
 
+/* Header
+--------------------------------------------- */
+.site-header {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: space-between;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+.site-header a {
+	color: #fff;
+}
+.site-header img {
+	width: 5rem;
+}
+.site-header .site-branding {
+	display: flex;
+	align-items: center;
+}
+.site-header .site-title {
+	font-size: calc(1rem + 1vw);
+}
+
+@media screen and (min-width: 37.5em) {
+	.site-header {
+		flex-direction: row;
+	}
+}
+/* Footer
+--------------------------------------------- */
 /* Posts and pages
 --------------------------------------------- */
 .sticky {
