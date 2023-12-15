@@ -1,0 +1,29 @@
+.site-header {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  a {
+    color: #fff;
+  }
+  img {
+    width: 5rem; //png logo
+  }
+  .site-branding {
+    display: flex;
+    align-items: center;
+  }
+  .site-title {
+    font-size: calc(1rem + 1vw);
+  }
+}
+
+@media screen and (min-width: 37.5em) {
+  .site-header {
+    flex-direction: row;
+  }
+}
