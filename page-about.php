@@ -90,29 +90,11 @@ get_header();
 						</tbody>
 					</table>
 				</section>
-
-				<!-- EC site information -->
-				<section class="ecsite-info">
-				<?php
-				if ( get_field('ecsite_image')) :
-					$image = get_field('ecsite_image');
-					$size = 'large'; // (thumbnail, medium, large, full or custom size)
-					if( $image ) :
-						echo wp_get_attachment_image( $image, $size );
-					endif;
-				endif;
-
-				if ( get_field('ecsite_message')) :
-					?>
-					<p><?php the_field('ecsite_message'); ?></p>
-					<?php
-				endif;
-				?>
-				</section>
-
 				<?php
 			endif;
-			// End of ACF output
+			
+			/* CTA Shopify */
+			get_template_part( 'template-parts/content', 'cta-sns' ); 
 		?>
 
 	</main><!-- #main -->

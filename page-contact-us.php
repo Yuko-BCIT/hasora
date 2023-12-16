@@ -30,8 +30,8 @@ get_header();
 
 
 		<?php
-			// CTA SNS template
-			get_template_part( 'template-parts/cta', 'sns' );
+			/* CTA Shopify */
+			get_template_part( 'template-parts/content', 'cta-sns' ); 
 		?>
 
 	</main><!-- #main -->
