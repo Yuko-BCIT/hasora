@@ -77,8 +77,11 @@ get_header();
 				<a href="<?php the_field('home_services_link')?>">Learn More</a>
 				<?php endif; ?>
 			</section>
-		<?php endif; ?>
+		<?php endif;
 
+		/* CTA Shopify */
+		get_template_part( 'template-parts/content', 'cta-shopify' ); 
+		?>
 	</main><!-- #main -->
 
 <?php
