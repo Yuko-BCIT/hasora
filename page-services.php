@@ -63,6 +63,9 @@ get_header();
 
 			<?php
 		endif;
+
+		/* CTA Shopify */
+		get_template_part( 'template-parts/content', 'cta-shopify' ); 
 		?>
 
 	</main><!-- #main -->
