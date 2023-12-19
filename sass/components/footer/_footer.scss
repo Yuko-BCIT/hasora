@@ -1,0 +1,43 @@
+.site-footer {
+  margin: 1rem;
+  padding: 2rem 1rem;
+  border-top: 2px dotted $green;
+  border-bottom: 2px dotted $green;
+  ul {
+    padding: 0;
+    margin: 2rem auto;
+  }
+  .site-info {
+    font-size: 1.3rem;
+  }
+  .footer-navigation {
+    li {
+      margin: 0.5rem 0;
+    }
+  }
+  .social-menu ul {
+    display: flex;
+    justify-content: center;
+    li {
+      margin: 0.5rem;
+    }
+  }
+  .copyright {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .site-footer {
+    margin: 2rem 1rem;
+    .site-info {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    .footer-navigation ul {
+      display: flex;
+      justify-content: space-around;
+      max-width: 40rem;
+    }
+  }
+}
