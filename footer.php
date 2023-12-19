@@ -31,7 +31,7 @@
 			<?php wp_nav_menu( array( 'theme_location' => 'sns') ); ?>
 		</nav>
 		
-		<div>
+		<div class="copyright">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 				<?php esc_html_e( '&copy;' );
 				echo date("Y"); ?> <!-- get current year -->
