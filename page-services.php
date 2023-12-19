@@ -18,51 +18,29 @@ get_header();
 	<main id="primary" class="site-main">
 
 		<?php
-		// while ( have_posts() ) :
-		// 	the_post();
+		get_template_part( 'template-parts/banner', 'image' );
 
-			get_template_part( 'template-parts/content', 'page' );
+		if ( function_exists('get_field')): 
+			if (get_field('services_message')): ?>
+				<p><?php the_field('services_message')?></p><?php
+			endif; 
 
-		// 	// If comments are open or we have at least one comment, load up the comment template.
-		// 	if ( comments_open() || get_comments_number() ) :
-		// 		comments_template();
-		// 	endif;
-
-		// endwhile; // End of the loop.
-
-		if ( function_exists('get_field')):
-			?>
-			<?php
-			if (get_field('services_message')):
-				?>
-				<p><?php the_field('services_message')?></p>
+			// ACF Repeater Field
+			if( have_rows('service') ): ?>
+			<section class="services">
 				<?php
+				while( have_rows('service') ) : 
+				the_row(); ?>
+				<h2><?php the_sub_field('title'); ?></h2>
+				<p><?php the_sub_field('description'); ?></p>
+				<?php
+				endwhile;
+				?>
+			</section><?php	
 			endif;
-			?>
-			<?php
-			if (get_field('service1_title') && get_field('service1_paragraph')):
-			?>
-			<section>
-				<h2><?php the_field('service1_title')?></h2>
-				<p><?php the_field('service1_paragraph') ?></p>
-			</section>
-			<?php
-			endif;
-			?>
-
-			<?php
-			if (get_field('service2_title') && get_field('service2_paragraph')):
-			?>
-			<section>
-				<h2><?php the_field('service2_title')?></h2>
-				<p><?php the_field('service2_paragraph') ?></p>
-			</section>
-			<?php
-			endif;
-			?>
-
-			<?php
 		endif;
+		/* CTA Shopify */
+		get_template_part( 'template-parts/content', 'cta-shopify' ); 
 		?>
 
 	</main><!-- #main -->
