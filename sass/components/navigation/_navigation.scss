@@ -69,13 +69,53 @@
 	}
 }
 
+// Hamburger Button
+.hamburger-button {
+	display: flex;
+	width: 20px;
+	height: 2px;
+	margin-bottom: 6px;
+	// position: relative;
+	background: $white;
+	border-radius: 5px;
+}
+
+.hamburger-button:first-child {
+	transform-origin: top left;
+}
+
+.hamburger-button:nth-child(3) {
+	transform-origin: bottom left;
+}
+
+// Hamburger button when nav open
+.toggled .hamburger-button:first-child {
+	transform: rotate(45deg);
+	width: 24px;
+}
+
+.toggled .hamburger-button:nth-child(2) {
+	visibility: hidden;
+}
+
+.toggled .hamburger-button:nth-child(3) {
+	transform: rotate(-45deg);
+	width: 24px;
+}
+
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	position:absolute;
+	top: 50%;
+	transform: translateY(-50%)
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 800px) {
 
 	.menu-toggle {
 		display: none;
