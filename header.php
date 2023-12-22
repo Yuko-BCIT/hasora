@@ -46,7 +46,11 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'hasora-theme' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<span class="hamburger-button"></span>
+				<span class="hamburger-button"></span>
+				<span class="hamburger-button"></span>
+			</button>
 			<?php
 			wp_nav_menu(
 				array(

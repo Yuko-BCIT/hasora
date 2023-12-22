@@ -6,12 +6,14 @@
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 4rem;
   z-index: 1000;
   a {
-    color: #fff;
+    color: $white;
   }
   img {
-    width: 5rem; //png logo
+    width: 4rem; //png logo
   }
   .site-branding {
     display: flex;
@@ -22,7 +24,7 @@
   }
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 800px) {
   .site-header {
     flex-direction: row;
   }
