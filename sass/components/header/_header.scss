@@ -12,20 +12,34 @@
   a {
     color: $white;
   }
-  img {
-    width: 4rem; //png logo
-  }
   .site-branding {
     display: flex;
     align-items: center;
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    // z-index: -5;
+    img {
+      width: 2rem; //png logo
+    }
   }
   .site-title {
     font-size: calc(1rem + 1vw);
+    margin: 0 0.5rem 0;
   }
 }
 
 @media screen and (min-width: 800px) {
   .site-header {
     flex-direction: row;
+    
+    .site-branding {
+      left: 1rem;
+      transform: translateX(0);
+      
+      img {
+        width: 3rem;
+      }
+    }
   }
 }
