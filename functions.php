@@ -143,6 +143,7 @@ function hasora_theme_scripts() {
 	wp_enqueue_style( 'hasora-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'hasora-theme-style', 'rtl', 'replace' );
 
+	wp_enqueue_script( 'hasora-theme-header', get_template_directory_uri() . '/js/header.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'hasora-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
