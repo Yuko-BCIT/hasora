@@ -1,171 +1,174 @@
 .main-navigation {
-	display: block;
-	width: 100%;
+  display: block;
+  width: 100%;
 
-	ul {
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
+  ul {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
+    ul {
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+      float: left;
+      position: absolute;
+      top: 100%;
+      left: -999em;
+      z-index: 99999;
 
-			ul {
-				left: -999em;
-				top: 0;
-			}
+      ul {
+        left: -999em;
+        top: 0;
+      }
 
-			li {
+      li {
+        &:hover > ul,
+        &.focus > ul {
+          display: block;
+          left: auto;
+        }
+      }
 
-				&:hover > ul,
-				&.focus > ul {
-					display: block;
-					left: auto;
-				}
-			}
+      a {
+        width: 200px;
+      }
 
-			a {
-				width: 200px;
-			}
+      :hover > a,
+      .focus > a {
+      }
 
-			:hover > a,
-			.focus > a {
-			}
+      a:hover,
+      a.focus {
+      }
+    }
 
-			a:hover,
-			a.focus {
-			}
-		}
+    li:hover > ul,
+    li.focus > ul {
+      left: auto;
+    }
+  }
 
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
-	}
+  li {
+    position: relative;
 
-	li {
-		position: relative;
+    &:hover > a,
+    &.focus > a {
+    }
+  }
 
-		&:hover > a,
-		&.focus > a {
-		}
-	}
+  a {
+    display: block;
+    text-decoration: none;
+  }
 
-	a {
-		display: block;
-		text-decoration: none;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
+  .current_page_item > a,
+  .current-menu-item > a,
+  .current_page_ancestor > a,
+  .current-menu-ancestor > a {
+  }
 }
 
-// Hamburger Button
+// Hamburger button container
+.menu-toggle {
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+// Hamburger Button <span>x3
 .hamburger-button {
-	display: flex;
-	width: 20px;
-	height: 2px;
-	margin-bottom: 6px;
-	background: $white;
-	border-radius: 5px;
-	transition: all 0.3s ease-in; // enables reverse effect when nav closes
+  display: flex;
+  width: 20px;
+  height: 2px;
+  margin-bottom: 6px;
+  background: $white;
+  border-radius: 5px;
+  transition: all 0.3s ease-in; // enables reverse effect when nav closes
 }
 
 .hamburger-button:first-child {
-	transform-origin: top left;
+  transform-origin: top left;
 }
 
 .hamburger-button:nth-child(3) {
-	transform-origin: bottom left;
+  transform-origin: bottom left;
 }
 
 // Hamburger button when nav open
-.toggled .hamburger-button {
-	transition: all 0.3s ease-in;
+.toggled {
+  .hamburger-button {
+    transition: all 0.3s ease-in;
+  }
+
+  .hamburger-button:first-child {
+    transform: rotate(45deg);
+    width: 24px;
+  }
+
+  .hamburger-button:nth-child(2) {
+    width: 0;
+  }
+
+  .hamburger-button:nth-child(3) {
+    transform: rotate(-45deg);
+    width: 24px;
+  }
 }
 
-.toggled .hamburger-button:first-child {
-	transform: rotate(45deg);
-	width: 24px;
+// mobile nav when open
+.main-navigation.toggled {
+  ul {
+    display: block;
+    background: $green;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; // this puts ul under hamburger button
+    width: 100%;
+    min-height: 100vh;
+    padding: 8rem 4rem;
+
+    li {
+      font-size: 1.3rem;
+      margin: 2rem 0;
+    }
+  }
 }
-
-.toggled .hamburger-button:nth-child(2) {
-	width: 0;
-}
-
-.toggled .hamburger-button:nth-child(3) {
-	transform: rotate(-45deg);
-	width: 24px;
-}
-
-/* Small menu. */
-.menu-toggle {
-	display: block;
-	background: transparent;
-	border: none;
-	cursor: pointer;
-}
-
-.main-navigation.toggled ul {
-	display: block;
-	background: $green;
-	position: absolute;
-	z-index: -1; // this puts ul under hamburger button
-	width: 100%;
-	height: 110vh;
-	padding: 8rem 0 4rem 4rem;
-	margin: -4rem 0 0;
-
-	li {
-		font-size: 1.3rem;
-		margin: 2rem 0;
-	}
-}
-
 
 @media screen and (min-width: 800px) {
+  // hide hamburger button
+  .menu-toggle {
+    display: none;
+  }
 
-	.menu-toggle {
-		display: none;
-	}
+  .main-navigation ul {
+    display: flex;
+    justify-content: flex-end;
 
-	.main-navigation ul {
-		display: flex;
-		justify-content: flex-end;
-
-		li {
-			padding-right: 1.5rem;
-		}
-	}
+    li {
+      padding-right: 1.5rem;
+    }
+  }
 }
 
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
+  .site-main & {
+    margin: 0 0 1.5em;
+  }
 
-	.site-main & {
-		margin: 0 0 1.5em;
-	}
+  .nav-links {
+    display: flex;
+  }
 
-	.nav-links {
-		display: flex;
-	}
+  .nav-previous {
+    flex: 1 0 50%;
+  }
 
-	.nav-previous {
-		flex: 1 0 50%;
-	}
-
-	.nav-next {
-		text-align: end;
-		flex: 1 0 50%;
-	}
+  .nav-next {
+    text-align: end;
+    flex: 1 0 50%;
+  }
 }

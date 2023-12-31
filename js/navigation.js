@@ -6,6 +6,7 @@
  */
 ( function() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
+	const siteHeader = document.getElementById( 'masthead' );
 
 	// Return early if the navigation doesn't exist.
 	if ( ! siteNavigation ) {
@@ -34,6 +35,7 @@
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
+		siteHeader.classList.toggle( 'toggled-header' ); // add class on header for styling purpose
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
