@@ -1,0 +1,7 @@
+// page common structure throughout the site
+header + p,
+section:not(.cta-shopify, .cta-sns) {
+  margin: auto;
+  padding: 1rem;
+  max-width: 60rem;
+}
