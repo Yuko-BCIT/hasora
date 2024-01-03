@@ -50,9 +50,17 @@
 
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
+			siteHeader.classList.remove( 'toggled-header' );
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
 	} );
+
+	// Cancel mobile nav when user rotates or resizes screen
+	window.onresize = () => {
+		siteNavigation.classList.remove( 'toggled' );
+		siteHeader.classList.remove( 'toggled-header' );
+		button.setAttribute( 'aria-expanded', 'false' );
+	};
 
 	// Get all the link elements within the menu.
 	const links = menu.getElementsByTagName( 'a' );
