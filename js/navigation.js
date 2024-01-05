@@ -55,11 +55,14 @@
 		}
 	} );
 
-	// Cancel mobile nav when user rotates or resizes screen
+	// Cancel mobile nav when the width gets wider than mobile size
 	window.onresize = () => {
-		siteNavigation.classList.remove( 'toggled' );
-		siteHeader.classList.remove( 'toggled-header' );
-		button.setAttribute( 'aria-expanded', 'false' );
+		
+		if ( window.innerWidth >= 800 ) {
+			siteNavigation.classList.remove( 'toggled' );
+			siteHeader.classList.remove( 'toggled-header' );
+			button.setAttribute( 'aria-expanded', 'false' );
+		}
 	};
 
 	// Get all the link elements within the menu.
