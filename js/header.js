@@ -5,6 +5,7 @@
  */
 ( function() {
 	const mastHead = document.getElementById( 'masthead' );
+	const parallaxImg = document.getElementsByClassName("attachment-post-thumbnail")[0];
 
 	window.onscroll = () => {
 		// calculates how many pixcels scrolled from top
@@ -13,6 +14,10 @@
 		} else {
 			mastHead.classList.remove( 'header-scrolled' );
 		}
+
+		// slows down image scroll to create parallax effect
+		const value = window.scrollY;
+  		parallaxImg.style.top = value * 0.5 + "px";
 	};
 	
 }() );
