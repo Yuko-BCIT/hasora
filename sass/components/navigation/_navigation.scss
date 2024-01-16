@@ -32,14 +32,6 @@
       a {
         width: 200px;
       }
-
-      :hover > a,
-      .focus > a {
-      }
-
-      a:hover,
-      a.focus {
-      }
     }
 
     li:hover > ul,
@@ -53,18 +45,13 @@
 
     &:hover > a,
     &.focus > a {
+      color: $green;
     }
   }
 
   a {
     display: block;
     text-decoration: none;
-  }
-
-  .current_page_item > a,
-  .current-menu-item > a,
-  .current_page_ancestor > a,
-  .current-menu-ancestor > a {
   }
 }
 
@@ -84,7 +71,7 @@
   margin-bottom: 6px;
   background: $white;
   border-radius: 5px;
-  transition: all 0.3s ease-in; // enables reverse effect when nav closes
+  transition: all 0.3s ease-in; // animate open & close
 }
 
 .hamburger-button:first-child {
@@ -97,10 +84,6 @@
 
 // Hamburger button when nav open
 .toggled {
-  .hamburger-button {
-    transition: all 0.3s ease-in;
-  }
-
   .hamburger-button:first-child {
     transform: rotate(45deg);
     width: 24px;
@@ -121,9 +104,7 @@
   ul {
     display: block;
     background: $green;
-    position: absolute;
-    top: 0;
-    left: 0;
+    @include absolute;
     z-index: -1; // this puts ul under hamburger button
     width: 100%;
     min-height: 100vh;
@@ -149,26 +130,5 @@
     li {
       padding-right: 1.5rem;
     }
-  }
-}
-
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
-  .site-main & {
-    margin: 0 0 1.5em;
-  }
-
-  .nav-links {
-    display: flex;
-  }
-
-  .nav-previous {
-    flex: 1 0 50%;
-  }
-
-  .nav-next {
-    text-align: end;
-    flex: 1 0 50%;
   }
 }
