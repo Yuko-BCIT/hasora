@@ -1,0 +1,68 @@
+// Home page styling
+.page-id-8 {
+  .page-links {
+    article {
+      padding: 2rem;
+
+      h2 {
+        text-align: center;
+        margin: 3rem 0;
+        width: 100%;
+      }
+
+      div {
+        text-align: center;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: 60vw;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      p {
+        text-align: left;
+      }
+
+      // button
+      a {
+        padding: 0.5rem;
+        display: inline-block;
+        position: relative;
+        border: 1px solid $green;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .page-id-8 {
+    .page-links {
+      article {
+        display: flex;
+        flex-wrap: wrap;
+
+        div {
+          width: 50%;
+          height: 20rem;
+        }
+
+        img {
+          height: 100%;
+        }
+
+        p {
+          padding: 0 2rem;
+          width: 100%;
+        }
+      }
+
+      // alternate the position of image and text
+      article:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+}
