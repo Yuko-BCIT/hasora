@@ -18,66 +18,85 @@ get_header();
 	<main id="primary" class="site-main">
 
 		<?php
-
 		/* banner image */
 		get_template_part( 'template-parts/banner', 'image' ); 
 
 		if ( function_exists('get_field')):
 			if (get_field('home_message')):
 				?>
-				<p><?php echo the_field('home_message')?></p>
+				<p><?php the_field('home_message')?></p>
 				<?php
 			endif;
-		endif;
-		?>
+		endif; ?>
 
-		<?php if ( function_exists('get_field')): ?>
-			<!-- Hasoraのこと -->
-			<section>
-				<?php if (get_field('home_about_title')): ?>
-				<h2><?php echo the_field('home_about_title') ?></h2>
-				<?php endif; ?>
+		<!-- Link to other pages -->
+		<?php 
+		if ( function_exists('get_field')): ?>
+			<section class="page-links">
+				<!-- Hasoraのこと -->
+					<?php 
+					if (get_field('home_about_title')): ?>
+				<article>
+					<h2><?php the_field('home_about_title') ?></h2>
+					<?php 
+					endif; ?>
 
-				<?php 
+					<?php 
 					if (get_field('home_about_image')): 
-					$image	= get_field('home_about_image');
-					$size	= 'medium'; // (thumbnail, medium, large, full or custom size)
-				?>
+						$image	= get_field('home_about_image');
+						$size	= 'medium'; // (thumbnail, medium, large, full or custom size) ?>
 					<div><?php echo wp_get_attachment_image($image,$size); ?></div>
-				<?php endif;?>
+					<?php 
+					endif; ?>
 
+					<div>
+					<?php 
+					if (get_field('home_about_paragraph')): ?>
+						<p><?php the_field('home_about_paragraph') ?></p>
+						<?php 
+					endif; ?>
+						
+					<?php 
+					if (get_field('home_about_link')): ?>
+						<a href="<?php the_field('home_about_link')?>"><?php esc_html_e( 'Learn More' ); ?></a>
+					<?php 
+					endif; ?>
+					</div>
+				</article>
 
-				<?php if (get_field('home_about_paragraph')): ?>
-				<p><?php echo the_field('home_about_paragraph') ?></p>
-				<?php endif; ?>
-				
-				<?php if (get_field('home_about_link')): ?>
-				<a href="<?php the_field('home_about_link')?>">Learn More</a>
-				<?php endif; ?>
-			</section>
-			<!-- Hasoraのサービス -->
-			<section>
-				<?php if (get_field('home_services_title')): ?>
-				<h2><?php echo the_field('home_services_title') ?></h2>
-				<?php endif; ?>
+				<!-- Hasoraのサービス -->
+					<?php 
+					if (get_field('home_services_title')): ?>
+				<article>
+					<h2><?php the_field('home_services_title') ?></h2>
+					<?php 
+					endif; ?>
 
-				<?php 
+					<?php 
 					if (get_field('home_services_image')): 
-					$image	= get_field('home_services_image');
-					$size	= 'medium'; // (thumbnail, medium, large, full or custom size)
-				?>
+						$image	= get_field('home_services_image');
+						$size	= 'medium'; // (thumbnail, medium, large, full or custom size) ?>
 					<div><?php echo wp_get_attachment_image($image,$size); ?></div>
-				<?php endif;?>
-
-				<?php if (get_field('home_services_paragraph')): ?>
-				<p><?php echo the_field('home_services_paragraph') ?></p>
-				<?php endif; ?>
-				
-				<?php if (get_field('home_services_link')): ?>
-				<a href="<?php the_field('home_services_link')?>">Learn More</a>
-				<?php endif; ?>
+					<?php 
+					endif;?>
+					
+					<div>
+						<?php 
+						if (get_field('home_services_paragraph')): ?>
+						<p><?php the_field('home_services_paragraph') ?></p>
+						<?php 
+						endif; ?>
+						
+						<?php 
+						if (get_field('home_services_link')): ?>
+						<a href="<?php the_field('home_services_link')?>"><?php esc_html_e( 'Learn More' ); ?></a>
+						<?php 
+						endif; ?>
+					</div>
+				</article>
 			</section>
-		<?php endif;
+			<?php 
+		endif;
 
 		/* CTA Shopify */
 		get_template_part( 'template-parts/content', 'cta-shopify' ); 
