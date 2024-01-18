@@ -113,6 +113,10 @@
     li {
       font-size: 1.3rem;
       margin: 2rem 0;
+      &:hover > a,
+      &.focus > a {
+        color: $white;
+      }
     }
   }
 }

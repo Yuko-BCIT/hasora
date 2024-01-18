@@ -2,7 +2,7 @@
 .page-id-8 {
   .page-links {
     article {
-      padding: 2rem;
+      padding: 2rem 0;
 
       h2 {
         text-align: center;
@@ -20,6 +20,7 @@
         height: 60vw;
         object-fit: cover;
         object-position: center;
+        box-shadow: 0 0 5px #9c9584;
       }
 
       p {
@@ -46,7 +47,7 @@
 
         div {
           width: 50%;
-          height: 20rem;
+          height: 23rem;
         }
 
         img {
@@ -62,6 +63,18 @@
       // alternate the position of image and text
       article:nth-child(even) {
         flex-direction: row-reverse;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .page-id-8 {
+    .page-links {
+      article {
+        div {
+          height: 20rem;
+        }
       }
     }
   }
