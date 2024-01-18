@@ -27,9 +27,18 @@ body:not(.page-id-11) {
       overflow: hidden;
 
       // banner text
-      h1 {
+      h1, p {
         color: $white;
         font-size: calc(1.5rem + 2vw);
+        font-weight: 700;
+        text-align: center;
+      }
+
+      // Marketing copy on Home replacing h1, position adjustment
+      p {
+        position: relative;
+        top: -1rem;
+        margin: 0.67em 0;
       }
     }
   }
