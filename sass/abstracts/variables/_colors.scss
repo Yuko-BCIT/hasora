@@ -10,7 +10,7 @@ $color__text-input: #666;
 $color__text-input-focus: #111;
 $color__link: #4169e1; //royalblue
 $color__link-visited: #800080; //purple
-$color__link-hover: #191970; //midnightblue
+$color__link-hover: #098902; //Hasora green
 $color__text-main: #404040;
 
 $color__border-button: #ccc #ccc #bbb;
@@ -20,5 +20,8 @@ $color__border-input: #ccc;
 $color__border-abbr: #666;
 
 // Hasora colors
-$white: #FFFBF1;
+$background: #FFFBF1;
+$white: #fff;
 $green: #098902;
+$background__opaque: rgba(255,251,241,0.7);
+$yellow: #f9cd74;

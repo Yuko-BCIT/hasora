@@ -13,33 +13,47 @@
 <?php 
 // ACF output
 if ( function_exists('get_field') ) :
+    ?>
+    <div class="content-right">
+    <?php
     // SNS info title
     if (get_field('sns_info_title','options')) : ?>
         <p><?php echo esc_html(the_field('sns_info_title','options')); ?></p><?php
     endif;
 
-    // Links to SNS
-    if (get_field('sns_url1','options')) :
-        $url1 = get_field('sns_url1','options'); ?>
-        <a class="sns-url" href="<?php echo esc_url( $url1 ); ?>">
-            <?php get_template_part('images/facebook'); ?> <!-- SVG icon file -->
-        </a><?php
-    endif;
+    ?>
+    <div class="sns-links">
+    <?php
 
-    if (get_field('sns_url2','options')) :
-        $url2 = get_field('sns_url2','options'); ?>
-        <a class="sns-url" href="<?php echo esc_url( $url2 ); ?>">
-            <?php get_template_part('images/instagram'); ?>
-        </a><?php
-    endif;
+        // Links to SNS
+        if (get_field('sns_url1','options')) :
+            $url1 = get_field('sns_url1','options'); ?>
+            <a class="sns-url" href="<?php echo esc_url( $url1 ); ?>">
+                <?php get_template_part('images/facebook'); ?> <!-- SVG icon file -->
+            </a><?php
+        endif;
 
-    if (get_field('sns_url3','options')) :
-        $url3 = get_field('sns_url3','options'); ?>
-        <a class="sns-url" href="<?php echo esc_url( $url3 ); ?>">
-            <?php get_template_part('images/youtube'); ?>
-        </a><?php
-    endif;
-endif; // End of ACF
+        if (get_field('sns_url2','options')) :
+            $url2 = get_field('sns_url2','options'); ?>
+            <a class="sns-url" href="<?php echo esc_url( $url2 ); ?>">
+                <?php get_template_part('images/instagram'); ?>
+            </a><?php
+        endif;
+
+        if (get_field('sns_url3','options')) :
+            $url3 = get_field('sns_url3','options'); ?>
+            <a class="sns-url" href="<?php echo esc_url( $url3 ); ?>">
+                <?php get_template_part('images/youtube'); ?>
+            </a><?php
+        endif;
+    ?>
+    </div>
+    <?php
+    ?>
+    </div>
+    <?php
+    endif; // End of ACF
+
 
 // SNS Feed plugin
 $id = get_the_id();

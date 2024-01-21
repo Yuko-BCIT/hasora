@@ -6,6 +6,7 @@
  */
 ( function() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
+	const siteHeader = document.getElementById( 'masthead' );
 
 	// Return early if the navigation doesn't exist.
 	if ( ! siteNavigation ) {
@@ -34,6 +35,7 @@
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
+		siteHeader.classList.toggle( 'toggled-header' ); // add class on header for styling purpose
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
@@ -48,9 +50,20 @@
 
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
+			siteHeader.classList.remove( 'toggled-header' );
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
 	} );
+
+	// Cancel mobile nav when the width gets wider than mobile size
+	window.onresize = () => {
+		
+		if ( window.innerWidth >= 800 ) {
+			siteNavigation.classList.remove( 'toggled' );
+			siteHeader.classList.remove( 'toggled-header' );
+			button.setAttribute( 'aria-expanded', 'false' );
+		}
+	};
 
 	// Get all the link elements within the menu.
 	const links = menu.getElementsByTagName( 'a' );

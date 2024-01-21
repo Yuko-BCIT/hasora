@@ -36,4 +36,14 @@
 
 /* Pages
 --------------------------------------------- */
+@import "pages/_home";
 @import "pages/_about";
+@import "pages/_contact-us";
+@import "pages/_parallax";
+
+/* Template parts
+--------------------------------------------- */
+@import "template-parts/_banner-image";
+@import "template-parts/_cta-shopify";
+@import "template-parts/_cta-sns";
+

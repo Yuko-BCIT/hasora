@@ -1,0 +1,71 @@
+// contact us page specific styling
+.page-id-15 {
+  .contact-form {
+    // fix width overflow issue
+    overflow: hidden;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  // *** Ninja Forms default styling fix ***
+  .nf-form-content label {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  // remove warning '!' sign from error
+  .nf-error.field-wrap .nf-field-element:after {
+    width: 0;
+    height: 0;
+    line-height: 0;
+  }
+
+  // center '*はすべて必須項目です' and '送信前に必須項目をご確認ください' text
+  .nf-form-fields-required,
+  .nf-error-msg.nf-error-field-errors {
+    text-align: center;
+  }
+
+  .nf-error-msg {
+    font-size: 0.9rem;
+  }
+
+  // input font to black
+  .nf-form-content .list-select-wrap .nf-field-element > div:focus,
+  .nf-form-content input:not([type="button"]):focus,
+  .nf-form-content textarea:focus {
+    color: #000;
+  }
+
+  // input background to white
+  .nf-form-content .list-select-wrap .nf-field-element > div,
+  .nf-form-content input:not([type="submit"]),
+  .nf-form-content textarea,
+  .checkbox-wrap .nf-field-label label::before {
+    background: $white;
+  }
+
+  // put 'こちらで必ずご確認ください' in the next row
+  .checkbox-container.label-right .field-wrap {
+    flex-direction: column;
+  }
+
+  // privacy policy link
+  .label-right .nf-field-description {
+    margin: 0 2rem;
+    color: $green;
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  // center submit button
+  .nf-field-element {
+    display: flex;
+    justify-content: center;
+  }
+  // *** End of Ninja Forms fix ***
+}

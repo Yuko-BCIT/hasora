@@ -17,21 +17,32 @@ get_header();
 
 	<main id="primary" class="site-main">
 		
-		<?php
-			// Banner image and text template
-			get_template_part( 'template-parts/banner', 'image' );
-
-			// ACF output
-			if ( function_exists('get_field') ) :
-				if ( get_field('about_message')) :
-					?>
-					<p class="about-message"><?php the_field('about_message'); ?></p>
+		<div class=parallax>
+			
+			 <!-- the_post_thumbnail('post-thumbnail', array( 'class' => 'parallax-img' )); -->
+			<div class="parallax-content-wrapper">
+				<!-- title -->
+				<section class="banner-text"> 
 					<?php
+						the_title( '<h1 class="entry-title">', '</h1>' ); 
+					?>
+				</section>
+				<!-- Hasoraのこと -->
+				<section class="parallax-content about_message">
+				<?php
+				if ( function_exists('get_field') ) :
+					if ( get_field('about_message')) :
+						?>
+						<p><?php the_field('about_message'); ?></p>
+						<?php
+					endif;
 				endif;
 				?>
+				</section>
+				<!-- Photo Gallary -->
 
-				<!-- Company information -->
-				<section class="company-info">
+				<!-- Company info -->
+				<section class="parallax-content company-info">
 				<?php
 				if ( get_field('company_info_title')) :
 					?>
@@ -90,14 +101,17 @@ get_header();
 						</tbody>
 					</table>
 				</section>
+				<!-- CTA -->
 				<?php
-			endif;
-			
-			/* CTA Shopify */
-			get_template_part( 'template-parts/content', 'cta-sns' ); 
-		?>
+					get_template_part( 'template-parts/content', 'cta-sns' ); 
+
+					get_footer();
+				?>
+			</div>
+		</div>
+
+
 
 	</main><!-- #main -->
 
 <?php
-get_footer();

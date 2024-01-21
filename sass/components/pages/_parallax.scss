@@ -1,0 +1,88 @@
+// .parallax {
+//     position: relative;
+//     overflow: hidden;
+//     height: min-content;
+// }
+
+// .parallax-img {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     left: 0;
+//     bottom: 0;
+//     display: block;
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//     object-position: center;
+// }
+
+.parallax-content-wrapper {
+    position: absolute;
+    // z-index: 2;
+    top: 20rem;
+    left: 0;
+    right: 0;
+    
+    // banner text
+    z-index: 1;
+    h1 {
+        
+        font-size: calc(1.5rem + 2vw);
+        font-weight: 700;
+        text-align: center;
+        color: $white;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    table {
+        tr td:first-child{
+            width: 5rem;
+        }
+    }
+
+    .about_message {
+        background-color: $background__opaque;
+        color: $color__text-main ;
+        margin-top: 10rem;
+        p {
+            margin-top:3rem;
+            margin-bottom: 3rem;
+        }
+    }
+    .company-info {
+        color: $color__text-main ;
+        background-color: $background;
+        margin-top: 10rem;
+    }
+    .site-footer {
+        // background-color: $background;
+        // padding: 3rem 2rem;
+    }
+    
+}
+
+.parallax-content {
+    display:block;
+    height:100%;
+
+}
+
+
+
+@media screen and (min-width: 800px) {
+    .parallax-content-wrapper {
+        .about_message {
+            background-color: transparent;
+            color: $white ;
+        }
+        table  {
+            max-width: 80%;
+            margin: auto;
+        }
+    }
+
+}

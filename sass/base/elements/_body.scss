@@ -1,3 +1,3 @@
-body {
+body:not(.page-id-11) {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 }

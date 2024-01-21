@@ -1,0 +1,45 @@
+/* ========== parallax banner image styling(except for About page) ========== */
+// parallax container
+body:not(.page-id-11) {
+  .entry-header {
+    position: relative;
+    height: 50rem;
+    margin-bottom: 4rem;
+    overflow: hidden;
+
+    // parallax image
+    .attachment-post-thumbnail {
+      @include absolute;
+
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    // banner text container
+    .banner-text {
+      position: relative;
+      top: 20rem;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+
+      // banner text
+      h1, p {
+        color: $white;
+        font-size: calc(1.5rem + 2vw);
+        font-weight: 700;
+        text-align: center;
+      }
+
+      // Marketing copy on Home replacing h1, position adjustment
+      p {
+        position: relative;
+        top: -1rem;
+        margin: 0.67em 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.cta-sns {
+    background-color: $yellow;
+    margin-top: 10rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    .content-right {
+        text-align: center;
+        padding-bottom: 4rem;
+    }
+    .sns-links .sns-url {
+        margin-left: 1rem;
+    }
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 800px) {
+    .cta-sns {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        gap: 3rem;
+    }
+    iframe {
+        margin: unset;
+    }
+}
