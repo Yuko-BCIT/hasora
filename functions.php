@@ -227,6 +227,11 @@ function parallax_background() {
 			position:fixed; /*固定*/
 			/* z-index:-1; 全ての要素より順位を下げる */
 		}
+		@media screen and (min-width: 800px) {
+			.page-id-11:before {
+				background-position:50% 20%;
+			}
+		}
 
 	</style>
 	<?php
