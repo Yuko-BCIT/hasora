@@ -140,11 +140,21 @@ add_action( 'widgets_init', 'hasora_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function hasora_theme_scripts() {
+	// get the current page id
+	$page_id = get_the_ID();
+
 	wp_enqueue_style( 'hasora-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'hasora-theme-style', 'rtl', 'replace' );
 
+	// Load header.js 
 	wp_enqueue_script( 'hasora-theme-header', get_template_directory_uri() . '/js/header.js', array(), _S_VERSION, true );
+
 	wp_enqueue_script( 'hasora-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	
+	// Locad parallax.js for Parallax page
+	// if ($page_id == 11 ) :
+	// 	wp_enqueue_script( 'hasora-theme-parallax', get_template_directory_uri() . '/js/parallax.js', array(), _S_VERSION, true );
+	// endif;
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -200,3 +210,31 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// Parallax
+
+function parallax_background() {
+	?>
+	<style>
+		.page-id-11:before {
+			content:""; /*中身はブランク*/
+			display:block;
+			background-image: url(<?php echo get_template_directory_uri()?>/images/about_hasora_compressed.jpeg);
+			background-repeat:no-repeat; /*画像を繰り返さない*/
+			background-size:cover; /*画面サイズいっぱいに表示*/
+			background-position:top;
+			width:100%; /*横幅いっぱいに表示*/
+			height:100vh; /*立幅いっぱいに表示*/
+			position:fixed; /*固定*/
+			/* z-index:-1; 全ての要素より順位を下げる */
+		}
+		@media screen and (min-width: 800px) {
+			.page-id-11:before {
+				background-position:50% 20%;
+			}
+		}
+
+	</style>
+	<?php
+}
+
+add_action('wp_head','parallax_background');
