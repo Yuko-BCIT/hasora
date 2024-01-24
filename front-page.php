@@ -58,7 +58,9 @@ get_header();
 						
 					<?php 
 					if (get_field('home_about_link')): ?>
-						<a href="<?php the_field('home_about_link')?>"><?php esc_html_e( 'Learn More' ); ?></a>
+						<p class="animated-button">
+							<a href="<?php the_field('home_about_link')?>"><?php esc_html_e( 'Learn More' ); ?></a>
+						</p>
 					<?php 
 					endif; ?>
 					</div>
@@ -81,17 +83,19 @@ get_header();
 					endif;?>
 					
 					<div>
-						<?php 
-						if (get_field('home_services_paragraph')): ?>
+					<?php 
+					if (get_field('home_services_paragraph')): ?>
 						<p><?php the_field('home_services_paragraph') ?></p>
-						<?php 
-						endif; ?>
+					<?php 
+					endif; ?>
 						
-						<?php 
-						if (get_field('home_services_link')): ?>
-						<a href="<?php the_field('home_services_link')?>"><?php esc_html_e( 'Learn More' ); ?></a>
-						<?php 
-						endif; ?>
+					<?php 
+					if (get_field('home_services_link')): ?>
+						<p class="animated-button">
+							<a href="<?php the_field('home_services_link')?>"><?php esc_html_e( 'Learn More' ); ?></a>
+						</p>
+					<?php 
+					endif; ?>
 					</div>
 				</article>
 			</section>
