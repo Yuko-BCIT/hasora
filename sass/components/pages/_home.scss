@@ -1,80 +1,149 @@
 // Home page styling
 .page-id-8 {
-  .page-links {
+  article {
+    padding: 2rem 0;
+
+    h2 {
+      text-align: center;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: -40px;
+        background: $box__shadow;
+        overflow: hidden;
+      }
+
+      &::before {
+        width: 100%;
+        height: 1px;
+        left: 1px;
+      }
+
+      &::after {
+        width: 6px;
+        height: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        rotate: 45deg;
+      }
+    }
+
+    div {
+      text-align: center;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 60vw;
+      object-fit: cover;
+      object-position: center;
+      box-shadow: 0 0 5px #9c9584;
+    }
+
+    p:first-child {
+      text-align: left;
+    }
+
+    // button
+    .animated-button a {
+      padding: 0.5rem 1rem;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $white;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: 0.5s;
+        border: 1px solid $green;
+      }
+
+      &::before {
+        top: -3px;
+        left: -3px;
+      }
+
+      &::after {
+        top: 3px;
+        left: 3px;
+      }
+
+      // button touch device behavior
+      @media (hover: none) {
+        &:active::before,
+        &:active::after
+        {
+          top: 0;
+          background-color: $green;
+          left: 0;
+          // text visibility fix
+          z-index: -1;
+        }
+      }
+
+      // button PC behavior
+      @media (hover: hover) {
+        &:hover::before,
+        &:hover::after,
+        &:focus::before,
+        &:focus::after {
+          top: 0;
+          background-color: $green;
+          left: 0;
+          z-index: -1;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 800px) {
     article {
-      padding: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
 
       h2 {
         text-align: center;
-        margin: 3rem 0;
+        margin: 2rem 0;
         width: 100%;
       }
 
       div {
-        text-align: center;
+        width: 50%;
+        height: 23rem;
       }
 
       img {
-        display: block;
+        height: 100%;
+      }
+
+      p:first-child {
+        padding: 0 2rem;
         width: 100%;
-        height: 60vw;
-        object-fit: cover;
-        object-position: center;
-        box-shadow: 0 0 5px #9c9584;
-      }
-
-      p {
-        text-align: left;
-      }
-
-      // button
-      a {
-        padding: 0.5rem;
-        display: inline-block;
-        position: relative;
-        border: 1px solid $green;
       }
     }
-  }
-}
-
-@media screen and (min-width: 800px) {
-  .page-id-8 {
-    .page-links {
-      article {
-        display: flex;
-        flex-wrap: wrap;
-
-        div {
-          width: 50%;
-          height: 23rem;
-        }
-
-        img {
-          height: 100%;
-        }
-
-        p {
-          padding: 0 2rem;
-          width: 100%;
-        }
-      }
-
-      // alternate the position of image and text
-      article:nth-child(even) {
-        flex-direction: row-reverse;
-      }
+    // alternate the position of image and text
+    article:nth-child(even) {
+      flex-direction: row-reverse;
     }
   }
-}
 
-@media screen and (min-width: 900px) {
-  .page-id-8 {
-    .page-links {
-      article {
-        div {
-          height: 20rem;
-        }
+  @media screen and (min-width: 900px) {
+    article {
+      div {
+        height: 20rem;
       }
     }
   }
