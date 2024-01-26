@@ -72,39 +72,26 @@
       }
 
       &::before {
-        top: -3px;
-        left: -3px;
+        top: -4px;
+        left: -4px;
       }
 
       &::after {
-        top: 3px;
-        left: 3px;
+        top: 4px;
+        left: 4px;
       }
 
-      // button touch device behavior
-      @media (hover: none) {
-        &:active::before,
-        &:active::after
-        {
-          top: 0;
-          background-color: $green;
-          left: 0;
-          // text visibility fix
-          z-index: -1;
-        }
-      }
-
-      // button PC behavior
-      @media (hover: hover) {
-        &:hover::before,
-        &:hover::after,
-        &:focus::before,
-        &:focus::after {
-          top: 0;
-          background-color: $green;
-          left: 0;
-          z-index: -1;
-        }
+      // button animation
+      &:hover::before,
+      &:hover::after,
+      &:focus::before,
+      &:focus::after,
+      &:active::before,
+      &:active::after {
+        top: 0;
+        left: 0;
+        background: $green;
+        z-index: -1; // text visibility fix
       }
     }
   }
