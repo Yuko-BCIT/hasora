@@ -20,7 +20,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body ontouchstart="" <?php body_class(); ?>><!-- ontouchstart = iOS fix for enabling :active -->
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'hasora-theme' ); ?></a>
