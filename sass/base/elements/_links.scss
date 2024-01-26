@@ -1,9 +1,6 @@
 a {
 	color: inherit;
 	text-decoration: none;
-	&:visited {
-		color: $color__link-visited;
-	}
 
 	&:hover,
 	&:focus,
@@ -18,5 +15,13 @@ a {
 	&:hover,
 	&:active {
 		outline: 0;
+	}
+}
+
+// :visited on footer
+footer li > a {
+	&:visited {
+		color: $color__link-visited;
+		fill: $color__link-visited;
 	}
 }
