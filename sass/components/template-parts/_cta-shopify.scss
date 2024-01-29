@@ -1,0 +1,48 @@
+.cta-shopify {
+    position: relative;
+    .cta-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    .cta-image {
+        background-color: black;
+        img {
+            opacity: 60%;
+            display: block; // remove the space at the bottom image.
+            width: 100%;
+            height: 23rem;
+            object-fit: cover;
+        }
+    }
+    .message {
+        position: absolute;
+        z-index: 1;
+        color: $white;
+        padding: 1rem;
+        text-align: center;
+        margin: 0 auto;
+        top: 50%;
+        left:0;
+        right:0;
+        transform: translateY(-50%);
+    }
+    .shop-link {
+        padding: 1rem 3rem;
+        background-color: $green;
+        border-radius: 7px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .cta-shopify {
+        .flex-content {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center; // prevent an item in flexbox from growing.
+            justify-content: center;
+            gap: 1rem;
+        }
+    }
+
+}
