@@ -27,14 +27,33 @@ get_header();
 
 			// ACF Repeater Field
 			if( have_rows('service') ): ?>
-			<section class="services">
+			<section class="services-title">
+				<?php
+				while( have_rows('service') ) :
+				the_row(); ?>
+				<div>
+					<img src="<?php echo get_template_directory_uri() . '/images/service.png'; ?>" />
+					<h2><?php the_sub_field('title'); ?></h2>
+				</div>
+				<?php
+				endwhile;
+				?>
+			</section>
+
+			<section class="services-detail">
 				<?php
 				while( have_rows('service') ) : 
 				the_row(); ?>
-				<h2><?php the_sub_field('title'); ?></h2>
-				<p><?php the_sub_field('description'); ?></p>
+				<article>
+					<div>
+						<?php $image = get_sub_field('image');
+						echo wp_get_attachment_image( $image, 'full' ); ?>
+						<h2><?php the_sub_field('title'); ?></h2>
+						<p><?php the_sub_field('description'); ?></p>
+					</div>
+				</article>
 				<?php
-				endwhile;
+				endwhile; 
 				?>
 			</section><?php	
 			endif;
