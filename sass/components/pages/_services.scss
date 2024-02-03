@@ -1,0 +1,115 @@
+.page-id-13 {
+  // Services Title
+  .services-title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: 1rem auto 3rem;
+    padding: 1rem 0;
+
+    div {
+      width: 45%;
+      margin: 0.5rem 0;
+      border-radius: 10px;
+      border: 1px solid $green;
+      box-shadow: 1px 1px 1px $green;
+      padding: 1rem 0 0;
+    }
+
+    img {
+      width: 4rem; // tree icons
+    }
+
+    h2 {
+      font-size: 0.8rem;
+      font-weight: 900;
+      color: $green;
+    }
+
+    @media screen and (min-width: 700px) {
+      div {
+        width: 30%;
+        padding: 2rem 0 1rem;
+      }
+
+      h2 {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+      div {
+        margin: 1rem;
+      }
+    }
+  }
+
+  // Services details
+  .services-detail {
+    max-width: 100%; // undo max-width: 60rem; for sections
+    padding: 0;
+
+    article {
+      overflow-x: hidden;
+      overflow-y: auto; // background-color height fix
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    div {
+      max-width: 60rem;
+      margin: auto;
+      padding: 1rem;
+      text-align: center; // centers images
+
+      p {
+        text-align: left;
+      }
+    }
+
+    // ACF repeater images
+    img {
+      width: 80vw;
+      height: 80vw;
+      max-width: 100%;
+      max-height: 100%;
+      object-position: center;
+      object-fit: cover;
+      margin: 1rem;
+      border-radius: 50%;
+      box-shadow: 1px 1px 4px rgb(156, 124, 124);
+    }
+
+    article:nth-child(odd) {
+      background: $background2;
+    }
+
+    @media screen and (min-width: 700px) {
+      article {
+        padding: 2rem 0;
+      }
+
+      h2 {
+        clear: none; // let letters flow around images
+      }
+
+      img {
+        float: right;
+        shape-outside: circle(50%);
+        width: 20rem;
+        height: 20rem;
+      }
+
+      article:nth-child(odd) img {
+        float: left;
+      }
+    }
+  }
+
+  .cta-shopify {
+    clear: both; // prevent float overflow
+  }
+}
