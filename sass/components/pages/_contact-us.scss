@@ -44,7 +44,7 @@
   .nf-form-content .list-select-wrap .nf-field-element > div,
   .nf-form-content input:not([type="submit"]),
   .nf-form-content textarea,
-  .checkbox-wrap .nf-field-label label::before {
+  .checkbox-wrap .nf-field-label label::after {
     background: $white;
   }
 
