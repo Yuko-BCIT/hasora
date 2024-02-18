@@ -25,3 +25,12 @@ footer li > a {
 		fill: $color__link-visited;
 	}
 }
+
+// :hover on CTA shopify
+.cta-shopify a {
+	transition: all 0.5s 0s ease;
+	&:hover {
+		// color: $white;
+		background-color:$white;
+	}
+}
