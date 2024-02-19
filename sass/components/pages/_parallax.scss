@@ -57,6 +57,10 @@
         color: $color__text-main ;
         background-color: $background;
         margin-top: 10rem;
+        padding: 3rem 1rem;
+        h2 {
+            margin-top: 0;
+        }
     }
     .site-footer {
         // background-color: $background;
