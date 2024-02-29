@@ -150,11 +150,6 @@ function hasora_theme_scripts() {
 	wp_enqueue_script( 'hasora-theme-header', get_template_directory_uri() . '/js/header.js', array(), _S_VERSION, true );
 
 	wp_enqueue_script( 'hasora-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-	
-	// Locad parallax.js for Parallax page
-	// if ($page_id == 11 ) :
-	// 	wp_enqueue_script( 'hasora-theme-parallax', get_template_directory_uri() . '/js/parallax.js', array(), _S_VERSION, true );
-	// endif;
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -246,3 +241,58 @@ function yoast_to_bottom(){
 	return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
+
+// =================== WordPress "dashboard" cleanup for non-administrator role ===================
+
+// Remove admin menu items from non-admin dashboard
+function hasora_remove_admin_menu() {
+	if ( !current_user_can( 'manage_options' ) ) {
+		remove_menu_page( 'edit.php' ); // Posts
+		remove_menu_page( 'edit-comments.php' );  // Comments
+		remove_menu_page( 'tools.php' );  // Tools
+		remove_submenu_page( 'edit.php?post_type=page', 'post-new.php?post_type=page' );  // 'Add New Page' SUBMENU
+
+		// Yoast SEO related
+		// remove_menu_page( 'admin.php?page=wpseo_workouts' );  // Yoast 消えない=指定がまちがっていた。?page= 以降のみ(slug)を指定
+		remove_menu_page( 'wpseo_dashboard' ); // main admin menu
+		remove_menu_page( 'wpseo_workouts' ); // need to remove this submenu too, or still show on menu
+		remove_menu_page( 'wpseo_redirects' ); // need to remove this submenu too, or still show on menu
+	}
+}
+add_action( 'admin_menu', 'hasora_remove_admin_menu' );
+
+// Remove admin bar(very top of the dashboard)items . Refer to CSS id using dev tool, then add the id EXCEPT FOR 'wp-admin-bar-'
+function hasora_remove_admin_bar($wp_admin_bar) {
+	if ( !current_user_can( 'manage_options' ) ) {
+		$wp_admin_bar->remove_node( 'wp-logo' ); // WP logo and its dropdown links
+		$wp_admin_bar->remove_node( 'comments' );  // Comments
+		$wp_admin_bar->remove_node( 'new-content' );  // +New (pages, posts, and media)
+		$wp_admin_bar->remove_node( 'wpseo-menu' );  // Yoast SEO
+	}
+}
+add_action( 'admin_bar_menu', 'hasora_remove_admin_bar', 9999 ); // needs high number to override default settings
+
+// Remove widgets from dashboard
+function hasora_remove_widgets() {
+	if ( !current_user_can( 'manage_options' ) ) {
+	remove_action( 'welcome_panel', 'wp_welcome_panel' ); // Welcom Panel
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quick Draft
+	remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' ); // Activity
+	remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // At a glance
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // WordPress Events and News
+	remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'side' ); // Yoast SEO
+	}
+}
+add_action( 'wp_dashboard_setup', 'hasora_remove_widgets' );
+
+// Disable block editor in all pages
+function hasora_disable_block_template() {
+    $post_type_object = get_post_type_object( 'page' );
+    $post_type_object->template = array(
+        array( 'core/paragraph', array(
+            'placeholder' => 'Add Description...',
+        ) ),
+    );
+    $post_type_object->template_lock = 'contentOnly'; // allow content edits only
+}
+add_action( 'init', 'hasora_disable_block_template' );
