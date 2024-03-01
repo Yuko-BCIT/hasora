@@ -281,6 +281,7 @@ function hasora_remove_widgets() {
 	remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // At a glance
 	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // WordPress Events and News
 	remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'side' ); // Yoast SEO
+	remove_meta_box( 'wpseo-wincher-dashboard-overview', 'dashboard', 'normal' ); // another Yoast SEO
 	}
 }
 add_action( 'wp_dashboard_setup', 'hasora_remove_widgets' );
@@ -296,3 +297,15 @@ function hasora_disable_block_template() {
     $post_type_object->template_lock = 'contentOnly'; // allow content edits only
 }
 add_action( 'init', 'hasora_disable_block_template' );
+
+// Remove 'trash' button from (All Pages) menu on dashboard, using page ids
+// https://danieliser.com/prevent-users-from-deleting-a-page-or-post-in-wordpress/
+// https://developer.wordpress.org/reference/hooks/user_has_cap/
+function hasora_prevent_page_deletion( $allcaps, $caps, $args ) {
+    $post_ids = [ 8, 11, 13, 15, 17 ];
+    if ( isset( $args[0] ) && isset( $args[2] ) && in_array( $args[2], $post_ids ) && $args[0] == 'delete_post' ) {
+        $allcaps[ $caps[0] ] = false;
+    }
+    return $allcaps;
+}
+add_filter ('user_has_cap', 'hasora_prevent_page_deletion', 10, 3);
