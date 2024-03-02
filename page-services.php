@@ -32,7 +32,8 @@ get_header();
 				while( have_rows('service') ) :
 				the_row(); ?>
 				<div>
-					<img src="<?php echo get_template_directory_uri() . '/images/service.png'; ?>" />
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/images/service.png' ); ?>" 
+					     alt="<?php echo esc_attr( 'colorful tree icon' );?>"/>
 					<h2><?php the_sub_field('title'); ?></h2>
 				</div>
 				<?php
@@ -47,7 +48,7 @@ get_header();
 				<article>
 					<div>
 						<?php $image = get_sub_field('image');
-						echo wp_get_attachment_image( $image, 'full' ); ?>
+						echo wp_get_attachment_image( $image, 'medium' ); ?>
 						<h2><?php the_sub_field('title'); ?></h2>
 						<p><?php the_sub_field('description'); ?></p>
 					</div>
