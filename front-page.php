@@ -59,7 +59,7 @@ get_header();
 					<?php 
 					if (get_field('home_about_link')): ?>
 						<p class="animated-button">
-							<a href="<?php the_field('home_about_link')?>"><?php esc_html_e( 'Learn More' ); ?></a>
+							<a href="<?php esc_url(the_field('home_about_link'));?>"><?php esc_html_e( 'Learn More' ); ?></a>
 						</p>
 					<?php 
 					endif; ?>
@@ -92,7 +92,7 @@ get_header();
 					<?php 
 					if (get_field('home_services_link')): ?>
 						<p class="animated-button">
-							<a href="<?php the_field('home_services_link')?>"><?php esc_html_e( 'Learn More' ); ?></a>
+							<a href="<?php esc_url(the_field('home_services_link'));?>"><?php esc_html_e( 'Learn More' ); ?></a>
 						</p>
 					<?php 
 					endif; ?>
